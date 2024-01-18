@@ -9,10 +9,10 @@ DegenToken is a basic Ethereum token implementation using the ERC-20 standard. I
 Explore the code to understand the token contract structure and modify it to suit your requirements. This project can be used as a foundation for more advanced token development or integrated into decentralized applications.
 ## Installation
 
-To download the project, clone the repository:
+1)To download the project, clone the repository:
  https://github.com/madanrnsit/DegenToken.git
 
-Make modification in the DegenToken.sol file
+2)Make modification in the DegenToken.sol file
     
 ## Usage
 
