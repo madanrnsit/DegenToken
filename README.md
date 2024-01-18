@@ -10,7 +10,7 @@ Explore the code to understand the token contract structure and modify it to sui
 ## Installation
 
 1)To download the project, clone the repository:
- https://github.com/madanrnsit/DegenToken.git
+ [https://github.com/madanrnsit/DegenToken.git](https://github.com/Metacrafters/DegenToken)
 
 2)Make modification in the DegenToken.sol file
     
