@@ -2,14 +2,13 @@
 pragma solidity ^0.8.18;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
-contract DegenToken is ERC20, Ownable, ERC20Burnable {
+contract DegenToken is ERC20, ERC20Burnable {
 
-    constructor(address initialOwner) ERC20("Degen", "DGN") Ownable(initialOwner) {}
+    constructor() ERC20("Degen", "DGN") {}
 
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) public {
         _mint(to, amount);
     }
 
@@ -25,18 +24,15 @@ contract DegenToken is ERC20, Ownable, ERC20Burnable {
             revert("Insufficient Balance");
         }
         if (action == 1) {
-            
             _mint(msg.sender, 10);
         } else if (action == 2) {
             require(balanceOf(msg.sender) >= 10, "Insufficient Tokens for T-shirt");
             _burn(msg.sender, 10);
             emit TShirtRedeemed("You redeemed a T-Shirt");
-        } else if(action ==3){
-             _burn(msg.sender,10);
-             emit SpecialActionExecuted("hi");
         } else {
-            revert("Invalid action");
-        }
+             _burn(msg.sender,10);
+             emit SpecialActionExecuted("Special Price");
+        } 
     }
 
     function customMint(uint256 baseAmount, uint256 bonusPercentage) public {
@@ -50,6 +46,6 @@ contract DegenToken is ERC20, Ownable, ERC20Burnable {
     event SpecialActionExecuted(string message);
 
     function getBalance() public view returns (uint256) {
-        return this.balanceOf(msg.sender);
+        return balanceOf(msg.sender);
     }
 }
